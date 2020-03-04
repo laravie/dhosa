@@ -66,7 +66,7 @@ trait Swappable
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public static function hsOn(?string $connection = null): Builder
+    public static function hsOnConnection(?string $connection = null): Builder
     {
         return \tap(static::hs(), static function ($instance) use ($connection) {
             $instance->setConnection($connection);
