@@ -37,14 +37,19 @@ class HotSwap
      * Override swappable model.
      *
      * @param  string  $alias
-     * @param  string  $class
+     * @param  string|null  $class
      *
      * @throws \InvalidArgumentException
      *
      * @return void
      */
-    public static function override(string $alias, string $class): void
+    public static function override(string $alias, ?string $class = null): void
     {
+        if (\is_null($class)) {
+            $class = $alias;
+            $alias = $class::hasAliasName();
+        }
+
         static::validateClassIsEloquentModel($class);
 
         static::$swappable[$alias] = $class;
