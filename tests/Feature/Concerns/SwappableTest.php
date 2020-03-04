@@ -5,7 +5,6 @@ namespace Laravie\Dhosa\Tests\Feature\Concerns;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\FactoryBuilder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Laravie\Dhosa\Concerns\Swappable;
 use Laravie\Dhosa\HotSwap;
 use Laravie\Dhosa\Tests\Stubs\Role;
 use Laravie\Dhosa\Tests\TestCase;
@@ -18,6 +17,7 @@ class SwappableTest extends TestCase
      * Define environment setup.
      *
      * @param  \Illuminate\Foundation\Application  $app
+     *
      * @return void
      */
     protected function getEnvironmentSetUp($app)

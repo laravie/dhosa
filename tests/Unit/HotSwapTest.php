@@ -45,6 +45,40 @@ class HotSwapTest extends TestCase
 
         HotSwap::register(NotModel::class);
     }
+
+    /** @test */
+    public function it_can_override_registered_alias()
+    {
+        HotSwap::register(SwappableModel::class);
+
+        $this->assertSame(SwappableModel::class, HotSwap::eloquent('Model'));
+
+        HotSwap::override('Model', NotSwappableModel::class);
+
+        $this->assertSame(NotSwappableModel::class, HotSwap::eloquent('Model'));
+    }
+
+    /** @test */
+    public function it_can_override_unregistered_alias()
+    {
+        HotSwap::override(SwappableReplacementModel::class);
+
+        $this->assertSame(SwappableReplacementModel::class, HotSwap::eloquent('Model'));
+    }
+
+    /** @test */
+    public function it_return_model_when_calling_eloquent_on_registered_alias_name()
+    {
+        HotSwap::register(SwappableModel::class);
+
+        $this->assertInstanceOf(SwappableModel::class, HotSwap::make('Model'));
+    }
+
+    /** @test */
+    public function it_return_null_when_calling_eloquent_on_unregistered_alias_name()
+    {
+        $this->assertNull(HotSwap::make('Foobar'));
+    }
 }
 
 class SwappableModel extends Model
@@ -55,6 +89,11 @@ class SwappableModel extends Model
     {
         return 'Model';
     }
+}
+
+class SwappableReplacementModel extends SwappableModel
+{
+    //
 }
 
 class NotSwappableModel extends Model

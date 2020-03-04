@@ -46,8 +46,10 @@ class HotSwap
     public static function override(string $alias, ?string $class = null): void
     {
         if (\is_null($class)) {
+            static::validateClassIsSwappable($alias);
+
             $class = $alias;
-            $alias = $class::hasAliasName();
+            $alias = $class::hsAliasName();
         }
 
         static::validateClassIsEloquentModel($class);
