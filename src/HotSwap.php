@@ -55,11 +55,11 @@ class HotSwap
      *
      * @param  string  $alias
      *
-     * @return string
+     * @return string|null
      */
-    public static function eloquent(string $alias): string
+    public static function eloquent(string $alias): ?string
     {
-        return \array_key_exists($alias, static::$swappable) ? static::$swappable[$alias] : $alias;
+        return \array_key_exists($alias, static::$swappable) ? static::$swappable[$alias] : null;
     }
 
     /**

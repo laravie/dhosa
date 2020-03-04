@@ -80,7 +80,7 @@ trait Swappable
      */
     public static function hsFinder(): string
     {
-        return HotSwap::eloquent(static::hsAliasName());
+        return HotSwap::eloquent(static::hsAliasName()) ?? static::class;
     }
 
     /**
