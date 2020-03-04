@@ -27,6 +27,11 @@
         "orchestra/canvas": "^4.5 || ^5.0",
         "orchestra/testbench": "^4.5 || ^5.0"
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
     "config": {
         "sort-packages": true
     },
