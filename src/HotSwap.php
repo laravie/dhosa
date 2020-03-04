@@ -17,18 +17,20 @@ class HotSwap
     /**
      * Register swappable model.
      *
-     * @param  string  $class
+     * @param  array|string  $class
      *
      * @throws \InvalidArgumentException
      *
      * @return void
      */
-    public static function register(string $class): void
+    public static function register($class): void
     {
-        static::validateClassIsEloquentModel($class);
-        static::validateClassIsSwappable($class);
+        foreach ((array) $class as $model) {
+            static::validateClassIsEloquentModel($model);
+            static::validateClassIsSwappable($model);
 
-        static::$swappable[$class::hsAliasName()] = $class;
+            static::$swappable[$model::hsAliasName()] = $model;
+        }
     }
 
     /**
