@@ -70,13 +70,15 @@ class HotSwap
      *
      * @throws \InvalidArgumentException
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \Illuminate\Database\Eloquent\Model|null
      */
-    public static function make(string $alias, array $attributes = []): Model
+    public static function make(string $alias, array $attributes = []): ?Model
     {
         $class = static::eloquent($alias);
 
-        static::validateClassIsEloquentModel($class);
+        if (\is_null($class)) {
+            return null;
+        }
 
         return new $class($attributes);
     }

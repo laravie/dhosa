@@ -18,7 +18,7 @@ trait Swappable
      */
     public static function hs(array $attributes = []): Model
     {
-        return HotSwap::make(static::hsAliasName(), $attributes);
+        return HotSwap::make(static::hsAliasName(), $attributes) ?? new static($attributes);
     }
 
     /**
