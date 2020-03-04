@@ -12,7 +12,7 @@ class HotSwap
      *
      * @var array
      */
-    private static $swappable = [];
+    protected static $swappable = [];
 
     /**
      * Register swappable model.
