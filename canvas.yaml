@@ -1,0 +1,26 @@
+preset: package
+
+namespace: Laravie\Dhosa
+
+paths:
+  src: src
+  resource: resources
+
+factory:
+  path: tests/database/factories
+
+migration:
+  path: tests/database/migrations
+  prefix: ''
+
+console:
+  namespace: Laravie\Dhosa\Console
+
+model:
+  namespace: Laravie\Dhosa
+
+provider:
+  namespace: Laravie\Dhosa\Providers
+
+testing:
+  namespace: Laravie\Dhosa\Tests

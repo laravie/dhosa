@@ -1,0 +1,34 @@
+{
+    "name": "laravie/dhosa",
+    "description": "Hot Swapping for Laravel Eloquent",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravie\\Dhosa\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laravie\\Dhosa\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "illuminate/database": "^6.0 || ^7.0"
+    },
+    "require-dev": {
+        "orchestra/canvas": "^4.5 || ^5.0",
+        "orchestra/testbench": "^4.5 || ^5.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
