@@ -76,5 +76,5 @@ User::hsAliasName(); // return "User"
 
 User::hsFinder(); // return "App\User"
 
-Device::hsFinder(); // return "Orchestra\Model\Role"
+Role::hsFinder(); // return "Orchestra\Model\Role"
 ```
