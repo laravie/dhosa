@@ -24,11 +24,17 @@
         "illuminate/database": "^6.0 || ^7.0 || ^8.0"
     },
     "require-dev": {
-        "laravel/legacy-factories": "^1.0.4",
+        "laravel/legacy-factories": "dev-finder",
         "orchestra/canvas": "^4.5 || ^5.0 || ^6.0",
         "orchestra/support-core": "^4.0 || ^5.0 || ^6.0",
         "orchestra/testbench": "^4.8 || ^5.2 || ^6.0"
     },
+     "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/crynobone/legacy-factories"
+        }
+    ],
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
