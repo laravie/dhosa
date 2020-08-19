@@ -7,7 +7,7 @@ Hot Swapping for Laravel Eloquent
 [![Latest Unstable Version](https://poser.pugx.org/laravie/dhosa/v/unstable)](https://packagist.org/packages/laravie/dhosa)
 [![License](https://poser.pugx.org/laravie/dhosa/license)](https://packagist.org/packages/laravie/dhosa)
 
-Dhosa allows developers to implement hot-swapping capabilities on Eloquent models. This will helps package developer to create a base model and app developer can extends upon the base model which making sure that all the relationship uses the proper model.
+Dhosa allows developers to implement hot-swapping capabilities on Eloquent models. This will helps package developer to create a base model and app developer can extends upon the base model while making sure that all the relationship uses the proper model.
 
 ## Installation
 
