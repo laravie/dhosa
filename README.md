@@ -17,6 +17,35 @@ To install through composer, run the following command from terminal:
 
 ## Usages
 
+### Enable Hot-Swap
+
+To enable hot-swap to any Eloquent all you need to do is use `Laravie\Dhosa\Concerns\Swappable` and implements the method.
+
+```php
+<?php
+
+namespace App;
+
+// ...
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravie\Dhosa\Concerns\Swappable;
+
+class User extends Authenticatable
+{
+    use Swappable;
+    
+    /**
+     * Get Hot-swappable alias name.
+     *
+     * @return string
+     */
+    public static function hsAliasName(): string
+    {
+        return 'User';
+    }
+}
+```
+
 ### Registering Hot-Swap
 
 ```php
