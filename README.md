@@ -7,7 +7,7 @@ Hot Swapping for Laravel Eloquent
 [![Latest Unstable Version](https://poser.pugx.org/laravie/dhosa/v/unstable)](https://packagist.org/packages/laravie/dhosa)
 [![License](https://poser.pugx.org/laravie/dhosa/license)](https://packagist.org/packages/laravie/dhosa)
 
-Dhosa allows developers to implement hot-swapping capabilities on Eloquent models. This will helps package developer to create a base model and app developer can extends upon the base model which making sure that all the relationship uses the proper model.
+Dhosa allows developers to implement hot-swapping capabilities on Eloquent models. This will helps package developer to create a base model and app developer can extends upon the base model while making sure that all the relationship uses the proper model.
 
 ## Installation
 
@@ -16,6 +16,35 @@ To install through composer, run the following command from terminal:
     composer require "laravie/dhosa"
 
 ## Usages
+
+### Enable Hot-Swap
+
+To enable hot-swap to any Eloquent all you need to do is use `Laravie\Dhosa\Concerns\Swappable` and implements the method.
+
+```php
+<?php
+
+namespace App;
+
+// ...
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravie\Dhosa\Concerns\Swappable;
+
+class User extends Authenticatable
+{
+    use Swappable;
+    
+    /**
+     * Get Hot-swappable alias name.
+     *
+     * @return string
+     */
+    public static function hsAliasName(): string
+    {
+        return 'User';
+    }
+}
+```
 
 ### Registering Hot-Swap
 
