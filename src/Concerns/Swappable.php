@@ -3,6 +3,7 @@
 namespace Laravie\Dhosa\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\FactoryBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Laravie\Dhosa\HotSwap;
@@ -38,11 +39,19 @@ trait Swappable
      *
      * @param  array  $attributes
      *
-     * @return \Illuminate\Database\Eloquent\FactoryBuilder
+     * @return \Illuminate\Database\Eloquent\FactoryBuilder|\Illuminate\Database\Eloquent\Factories\Factory
      */
-    public static function hsFaker(): FactoryBuilder
+    public static function hsFaker()
     {
         $arguments = \func_get_args();
+
+        $model = static::hsFinder();
+
+        $uses = \trait_uses_recursive($model);
+
+        if (isset($uses[HasFactory::class])) {
+            return $model::factory(...$arguments);
+        }
 
         \array_unshift($arguments, static::hsFinder());
 
