@@ -40,6 +40,8 @@ trait Swappable
      * @param  array  $attributes
      *
      * @return \Illuminate\Database\Eloquent\FactoryBuilder|\Illuminate\Database\Eloquent\Factories\Factory
+     *
+     * @deprecated v1.1.0
      */
     public static function hsFaker()
     {

@@ -99,8 +99,6 @@ $user = User::hsOnWriteConnection(); // return a query builder for App\User usin
 use Orchestra\Model\Role;
 use Orchestra\Model\User;
 
-$user = User::hsFaker(); // return a faker for App\User
-
 User::hsAliasName(); // return "User"
 
 User::hsFinder(); // return "App\User"
