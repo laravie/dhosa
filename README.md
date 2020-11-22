@@ -24,7 +24,7 @@ To enable hot-swap to any Eloquent all you need to do is use `Laravie\Dhosa\Conc
 ```php
 <?php
 
-namespace App;
+namespace App\Models;
 
 // ...
 use Illuminate\Foundation\Auth\User as Authenticatable;
