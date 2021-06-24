@@ -111,8 +111,8 @@ class HotSwap
      */
     private static function validateClassIsEloquentModel(string $class): void
     {
-        if (! \is_subclass_of($class, Model::class)) {
-            throw new InvalidArgumentException(\sprintf('Given [%s] is not a subclass of [%s].', $class, Model::class));
+        if (! is_subclass_of($class, Model::class)) {
+            throw new InvalidArgumentException(sprintf('Given [%s] is not a subclass of [%s].', $class, Model::class));
         }
     }
 
@@ -127,10 +127,10 @@ class HotSwap
      */
     private static function validateClassIsSwappable(string $class): void
     {
-        $uses = \class_uses_recursive($class);
+        $uses = class_uses_recursive($class);
 
         if (! isset($uses[Concerns\Swappable::class])) {
-            throw new InvalidArgumentException(\sprintf("Given [%s] doesn't use [%s] trait.", $class, Concerns\Swappable::class));
+            throw new InvalidArgumentException(sprintf("Given [%s] doesn't use [%s] trait.", $class, Concerns\Swappable::class));
         }
     }
 }

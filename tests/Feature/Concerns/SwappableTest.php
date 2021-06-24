@@ -26,7 +26,7 @@ class SwappableTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_an_instance_of_eloquent()
+    public function itCanCreateAnInstanceOfEloquent()
     {
         $role = Role::hs(['name' => 'Staff']);
 
@@ -36,7 +36,7 @@ class SwappableTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_an_instance_of_eloquent_query_builder()
+    public function itCanCreateAnInstanceOfEloquentQueryBuilder()
     {
         $query = Role::hsQuery();
 
@@ -45,7 +45,7 @@ class SwappableTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_an_instance_of_eloquent_faker_builder()
+    public function itCanCreateAnInstanceOfEloquentFakerBuilder()
     {
         $builder = Role::hsFaker();
 
@@ -59,7 +59,7 @@ class SwappableTest extends TestCase
     }
 
     /** @test */
-    public function it_can_find_the_hs_model_name()
+    public function itCanFindTheHsModelName()
     {
         $this->assertSame(Role::class, Role::hsFinder());
     }

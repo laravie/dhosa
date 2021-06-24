@@ -4,7 +4,6 @@ namespace Laravie\Dhosa\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\FactoryBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Laravie\Dhosa\HotSwap;
 
@@ -49,15 +48,15 @@ trait Swappable
 
         $model = static::hsFinder();
 
-        $uses = \trait_uses_recursive($model);
+        $uses = trait_uses_recursive($model);
 
         if (isset($uses[HasFactory::class])) {
             return $model::factory(...$arguments);
         }
 
-        \array_unshift($arguments, static::hsFinder());
+        array_unshift($arguments, static::hsFinder());
 
-        return \factory(...$arguments);
+        return factory(...$arguments);
     }
 
     /**
@@ -79,7 +78,7 @@ trait Swappable
      */
     public static function hsOnConnection(?string $connection = null): Builder
     {
-        return \tap(static::hs(), static function ($instance) use ($connection) {
+        return tap(static::hs(), static function ($instance) use ($connection) {
             $instance->setConnection($connection);
         })->newQuery();
     }
