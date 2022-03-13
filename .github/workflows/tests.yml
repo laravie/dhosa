@@ -18,7 +18,6 @@ jobs:
         php:
           - "8.1"
         dependencies:
-          - "locked"
           - "highest"
           - "lowest"
         laravel:
@@ -47,6 +46,7 @@ jobs:
         uses: "ramsey/composer-install@v1"
         with:
           composer-options: "--prefer-dist --no-cache"
+
       - name: Execute tests
         run: vendor/bin/phpunit
 
@@ -60,8 +60,7 @@ jobs:
           - "windows-latest"
         php:
           - "8.0"
-        dependencies:
-          - "locked"
+        dependencies: 
           - "highest"
           - "lowest"
         laravel:
@@ -92,6 +91,7 @@ jobs:
         uses: "ramsey/composer-install@v1"
         with:
           composer-options: "--prefer-dist --no-cache"
+
       - name: Execute tests
         run: vendor/bin/phpunit
 
@@ -107,7 +107,6 @@ jobs:
           - "7.3"
           - "7.4"
         dependencies:
-          - "locked"
           - "highest"
           - "lowest"
         laravel:
@@ -137,5 +136,6 @@ jobs:
         uses: "ramsey/composer-install@v1"
         with:
           composer-options: "--prefer-dist --no-cache"
+
       - name: Execute tests
         run: vendor/bin/phpunit
